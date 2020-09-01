@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"></title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <style>
+        .loginborder{
+            border-style: inset;
+            /*border-color: #1c7430;*/
+            border-width: medium;
+            margin-top: 100px;
+        }
+    </style>
+
+</head>
+
+<body class="" >
+
+<div class="container col-sm-12" style="alignment: center; border-block: #0c5460">
+
+
+    <form th:action="@{/register}" th:object="${User}"  method="post">
+        <!--<div >
+
+        </div>-->
+
+        <div class="container col-sm-4 loginborder  align-content-lg-end" >
+            <div>
+                <img th:src="@{https://scontent.fccu9-1.fna.fbcdn.net/v/t1.0-9/94070453_130258038621492_6802715536682647552_n.jpg?_nc_cat=101&_nc_sid=85a577&_nc_ohc=SAx3hd9bM4oAX_Q--Oo&_nc_ht=scontent.fccu9-1.fna&oh=5d7e62361290395d6a88798bee51a076&oe=5EFC2416}" style="width: 400px; height: 250px" alt="cropwheel_logo"/>
+            </div>
+            <label class="col-sm-4"  for="fname"><b>First Name</b></label>
+            <input class="col-sm-7" th:field="*{fName}" type="text"  placeholder="Enter Username" name="uname" id="fname" required>
+
+            <label class="col-sm-4"  for="mname"><b>Middle Name</b></label>
+            <input class="col-sm-7" th:field="*{mName}" type="text"  placeholder="Enter Username" name="uname" id="mname" required>
+
+            <label class="col-sm-4"  for="lname"><b>Last Name</b></label>
+            <input class="col-sm-7" th:field="*{lName}" type="text"  placeholder="Enter Username" name="uname" id="lname" required>
+
+            <label class="col-sm-4"  for="uname"><b>E Mail</b></label>
+            <input class="col-sm-7" th:field="*{username}" type="text"  placeholder="Enter Username" name="uname" id="uname" required>
+
+
+            <label class="col-sm-4"  style="padding-top: 20px" for="psw"><b>Password</b></label>
+            <input class="col-sm-7" th:field="*{password}" type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+            <label class="col-sm-4"  style="padding-top: 20px" for="cpsw"><b>Confirm Password</b></label>
+            <input class="col-sm-7"  type="password" placeholder="Enter Password" name="psw" id="cpsw" required>
+
+            <div style="padding-top: 20px">
+                <button style="alignment: center" class="btn btn-primary" type="submit">Sign Up</button>
+                <a style="float:right"  href="/login">Sign In</a>
+
+            </div>
+            <div style="padding-top: 20px">
+                <button style="alignment: right" class="btn btn-danger" type="submit">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+
+        </div>
+        <!--<div class="container" style="margin-top: 50px ;background-color:#f1f1f1">
+            <button class="btn btn-danger" type="button" >Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>-->
+
+
+    </form>
+</div>
+
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Page level plugin JavaScript-->
+<script src="/vendor/chart.js/Chart.min.js"></script>
+<script src="/vendor/datatables/jquery.dataTables.js"></script>
+<script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="/js/sb-admin.min.js"></script>
+
+<!-- Demo scripts for this page-->
+<script src="/js/demo/datatables-demo.js"></script>
+<script src="/js/demo/chart-area-demo.js"></script>
+
+
+
+
+</body>
+</html>

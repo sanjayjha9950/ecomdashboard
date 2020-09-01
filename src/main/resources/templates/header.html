@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>header</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <link href="webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js" ></script>
+    <script src="webjars/jquery/3.5.1/jquery.min.js" ></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <style>
+        /* Add some padding on document's body to prevent the content
+        to go underneath the header and footer */
+        body{
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+        .container{
+            width: 80%;
+            margin: 0 auto; /* Center the DIV horizontally */
+        }
+        .fixed-header, .fixed-footer{
+            width: 100%;
+            position: fixed;
+            background: #333;
+            padding: 0 0;
+            color: #fff;
+            z-index: 999;
+        }
+        .fixed-header{
+            top: 0;
+        }
+        .fixed-footer{
+            bottom: 0;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            float: left;
+            padding-top: 10px;
+        }
+        li a:hover {
+            background-color: #111111;
+        }
+        /* Some more styles to beutify this example */
+        ul li a{
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+        .container p{
+            line-height: 200px; /* Create scrollbar to test positioning */
+        }
+        .card.product .btn {
+            bottom: 1.5rem;
+            max-width: 100%;
+        }
+
+        .price {
+            font-size: 1.75rem;
+        }
+        .card-container{
+            padding-top: 20px;
+        }
+        .carticon i:hover{
+            color: cornflowerblue;
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                margin-bottom: 2rem;
+
+            }
+        }
+    </style>
+</head>
+<body style="padding-top: 60px; padding-bottom: 40px">
+<div th:fragment="header">
+    <div class="fixed-header">
+        <div style="float: left;padding-left: 30px; padding-top: 20px"><a href="/dashboard"><i class="material-icons" style="color: white">home</i></a></div>
+    <div class="container">
+
+        <ul class="nav nav-bar inline">
+
+            <li ><a href="#">Order</a>
+                <!--<ul class="dropdown-menu">
+                    <li><a href="#">List Orders</a></li>
+                    <li><a href="#">Create Order</a></li>
+                </ul>-->
+            </li>
+            <li ><a href="/listProducts">Products</a>
+                <!--<ul class="dropdown-menu">
+                    <li><a href="/listProducts">List Product</a></li>
+                    <li><a href="/addProduct">Add Product</a></li>
+                </ul>-->
+            </li>
+            <li ><a href="#">Users</a>
+                <!--<ul class="dropdown-menu">
+                    <li><a href="#">List Users</a></li>
+                    <li><a href="#">Add User</a></li>
+                </ul>-->
+            </li>
+            <li><a style="float: right" href="#">Contact Us</a>
+            <li style="float: right"><a href="#"><i class="material-icons carticon" style="color: white">shopping_cart</i></a></li>
+        </ul>
+    </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .rcorners2 {
+            border-radius: 25px;
+            background: lightgrey;
+            padding: 20px;
+            width: auto;
+            height: auto;
+        }
+        .card :hover{
+            background: darkgrey;
+        }
+        .plabel{
+            color: #2e59d9
+        }
+        .pdetails{
+            padding-top: 10px;
+            padding-left:50px;
+            border: black
+        }
+    </style>
+</head>
+<body>
+<div th:insert="header"></div>
+
+<div class="container row view-area">
+    <div class="row view-area col-lg-12">
+        <div style="float: left; padding-top: 20px; "  th:insert="searchbar"></div>
+        <div th:each="product: ${products}" class="col-lg-7 pdetails" style="padding-top: 10px;padding-left:50px; border: black">
+
+            <div class="border border-primary card bg-light text-dark" >
+
+                <div class="row list-group card-body rcorners2"  >
+
+                    <div  style="padding-left: 10px">
+                        <label for="name" class="plabel">Name: </label>
+                        <data id="name" style="font-family: 'Arial Black'" th:text="${product.name}+' ('+${product.code}+')'"></data>
+                        <a href="/editProduct"><i class="material-icons" style="color: black; float: right">edit</i></a>
+                    </div>
+                    <div  style="padding-left: 10px">
+                        <label for="name" class="plabel">Description: </label>
+                        <data id="code" th:text="${product.description}"></data>
+                    </div>
+                    <div  style="padding-left: 10px">
+                        <label for="stock" class="plabel">Stock: </label>
+                        <data id="stock" th:text="${product.stock}"></data>
+                        <label for="price" class="plabel    " style="padding-left: 10px">Price: </label>
+                        <data id="price" th:text="${'₹'+product.price}"></data>
+                        <a id="delete" name="delete" onclick="sendDelete(${product.id})"><i class="material-icons" style="color: black; float: right">delete</i></a>
+                    </div>
+
+                </div>
+
+            </div>
+            <br>
+
+        </div>
+
+        <a class="btn btn-primary" role="button" href="/addProduct">Add Product</a>
+    </div>
+
+
+</div>
+
+</body>
+</html>
+<script>
+    function sendDelete(id) {
+        var r = confirm("Do you want to delete this product? " +id);
+        if (r == true) {
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("DELETE", '/product/delete/' + id, true);
+            xhttp.onload = function () {
+                let responseURL = xhttp.responseURL;
+                console.log("Redirecting to:", responseURL);
+                window.location.replace(responseURL);
+            };
+            xhttp.send();
+        }
+    }
+</script>
